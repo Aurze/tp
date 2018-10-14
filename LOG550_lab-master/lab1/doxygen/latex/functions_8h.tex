@@ -1,0 +1,54 @@
+\hypertarget{functions_8h}{}\section{lab1/src/functions.h File Reference}
+\label{functions_8h}\index{lab1/src/functions.\+h@{lab1/src/functions.\+h}}
+
+
+En-\/t�tes (headers) des fonctions dans le fichier \hyperlink{main_8c}{main.\+c}.  
+
+
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{functions_8h_a6999b5fdb631de146ff6db5d71ed776d}\label{functions_8h_a6999b5fdb631de146ff6db5d71ed776d}} 
+void \hyperlink{functions_8h_a6999b5fdb631de146ff6db5d71ed776d}{send\+\_\+pot\+\_\+val} (void)
+\begin{DoxyCompactList}\small\item\em Envoie la valeur du potentiomètre sur le lien U\+S\+A\+RT. \end{DoxyCompactList}\item 
+void \hyperlink{functions_8h_aa4de6092ef4b3492152ec92a14292669}{send\+\_\+light\+\_\+val} (void)
+\begin{DoxyCompactList}\small\item\em Envoie la valeur du capteur de lumière sur le lien U\+S\+A\+RT. \end{DoxyCompactList}\item 
+void \hyperlink{functions_8h_a9c23722240ed3faf52b8e34d408f3c63}{get\+\_\+received\+\_\+char} (void)
+\begin{DoxyCompactList}\small\item\em Traiter le caractère reçu du U\+S\+A\+RT. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{functions_8h_a040ece30a8c5b26eaf08db9fdc1f408c}\label{functions_8h_a040ece30a8c5b26eaf08db9fdc1f408c}} 
+void \hyperlink{functions_8h_a040ece30a8c5b26eaf08db9fdc1f408c}{toggle\+\_\+leds} (void)
+\begin{DoxyCompactList}\small\item\em Faire clignoter les L\+E\+Ds lorsque nécessaire. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+En-\/t�tes (headers) des fonctions dans le fichier \hyperlink{main_8c}{main.\+c}. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{functions_8h_a9c23722240ed3faf52b8e34d408f3c63}\label{functions_8h_a9c23722240ed3faf52b8e34d408f3c63}} 
+\index{functions.\+h@{functions.\+h}!get\+\_\+received\+\_\+char@{get\+\_\+received\+\_\+char}}
+\index{get\+\_\+received\+\_\+char@{get\+\_\+received\+\_\+char}!functions.\+h@{functions.\+h}}
+\subsubsection{\texorpdfstring{get\+\_\+received\+\_\+char()}{get\_received\_char()}}
+{\footnotesize\ttfamily get\+\_\+received\+\_\+char (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Traiter le caractère reçu du U\+S\+A\+RT. 
+
+\begin{DoxyParagraph}{Traite le caractère reçu sur U\+S\+A\+RT (appelé après une interruption).}
+Traite le départ (s) et la fin (x) de transmission. 
+\end{DoxyParagraph}
+\mbox{\Hypertarget{functions_8h_aa4de6092ef4b3492152ec92a14292669}\label{functions_8h_aa4de6092ef4b3492152ec92a14292669}} 
+\index{functions.\+h@{functions.\+h}!send\+\_\+light\+\_\+val@{send\+\_\+light\+\_\+val}}
+\index{send\+\_\+light\+\_\+val@{send\+\_\+light\+\_\+val}!functions.\+h@{functions.\+h}}
+\subsubsection{\texorpdfstring{send\+\_\+light\+\_\+val()}{send\_light\_val()}}
+{\footnotesize\ttfamily void send\+\_\+light\+\_\+val (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Envoie la valeur du capteur de lumière sur le lien U\+S\+A\+RT. 
+
+\begin{DoxyParagraph}{Envoie la valeur de la lumière lorsque l\textquotesingle{}U\+S\+A\+RT est prêt pour la transmission.}
+Sinon, allume le quatrième L\+ED pour indiquer le problème 
+\end{DoxyParagraph}

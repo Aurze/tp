@@ -1,0 +1,191 @@
+\hypertarget{main_8c}{}\section{lab1/src/main.c File Reference}
+\label{main_8c}\index{lab1/src/main.\+c@{lab1/src/main.\+c}}
+
+
+Prototype 1 -\/ L\+O\+G550.  
+
+
+{\ttfamily \#include $<$asf.\+h$>$}\newline
+{\ttfamily \#include $<$avr32/io.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}functions.\+h\char`\"{}}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8c_a0431a0eb62758b130bfe4c39783b1800}\label{main_8c_a0431a0eb62758b130bfe4c39783b1800}} 
+\#define \hyperlink{main_8c_a0431a0eb62758b130bfe4c39783b1800}{F\+P\+BA}~F\+O\+S\+C0
+\begin{DoxyCompactList}\small\item\em Vitesse d\textquotesingle{}horloge sélectionnée (12 M\+Hz) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8c_a73997e7622d7ea19a9b00cb38069249b}\label{main_8c_a73997e7622d7ea19a9b00cb38069249b}} 
+\#define \hyperlink{main_8c_a73997e7622d7ea19a9b00cb38069249b}{A\+D\+C\+\_\+\+S\+R\+\_\+\+P\+O\+T\+E\+N\+T\+I\+O\+M\+E\+T\+E\+R\+\_\+\+M\+A\+SK}~A\+V\+R32\+\_\+\+A\+D\+C\+\_\+\+S\+R\+\_\+\+E\+O\+C1\+\_\+\+M\+A\+SK
+\begin{DoxyCompactList}\small\item\em Configuration A\+DC. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8c_a64f29277f88eab283188222f1371685b}\label{main_8c_a64f29277f88eab283188222f1371685b}} 
+\#define {\bfseries A\+D\+C\+\_\+\+S\+R\+\_\+\+L\+I\+G\+H\+T\+\_\+\+M\+A\+SK}~A\+V\+R32\+\_\+\+A\+D\+C\+\_\+\+S\+R\+\_\+\+E\+O\+C2\+\_\+\+M\+A\+SK
+\item 
+\mbox{\Hypertarget{main_8c_ad6d3a30558d1e4745ed5ed218da92ffb}\label{main_8c_ad6d3a30558d1e4745ed5ed218da92ffb}} 
+\#define {\bfseries A\+D\+C\+\_\+\+I\+E\+R\+\_\+\+P\+O\+T\+E\+N\+T\+I\+O\+M\+E\+T\+E\+R\+\_\+\+M\+A\+SK}~A\+V\+R32\+\_\+\+A\+D\+C\+\_\+\+I\+E\+R\+\_\+\+E\+O\+C1\+\_\+\+M\+A\+SK
+\item 
+\mbox{\Hypertarget{main_8c_a16be15b23a5c2db9b14b8c534a1834cc}\label{main_8c_a16be15b23a5c2db9b14b8c534a1834cc}} 
+\#define {\bfseries A\+D\+C\+\_\+\+I\+E\+R\+\_\+\+L\+I\+G\+H\+T\+\_\+\+M\+A\+SK}~A\+V\+R32\+\_\+\+A\+D\+C\+\_\+\+I\+E\+R\+\_\+\+E\+O\+C2\+\_\+\+M\+A\+SK
+\item 
+\mbox{\Hypertarget{main_8c_a6a53a6c94a70cc286e300a0ea8f46ba4}\label{main_8c_a6a53a6c94a70cc286e300a0ea8f46ba4}} 
+\#define \hyperlink{main_8c_a6a53a6c94a70cc286e300a0ea8f46ba4}{U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+R\+A\+TE}~57600
+\begin{DoxyCompactList}\small\item\em Configuration U\+S\+A\+RT. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8c_a98a3e51f961ac731572fbfc29b9892b1}\label{main_8c_a98a3e51f961ac731572fbfc29b9892b1}} 
+\#define {\bfseries C\+O\+M\+M\+\_\+\+U\+S\+A\+RT}~A\+V\+R32\+\_\+\+U\+S\+A\+R\+T0
+\item 
+\mbox{\Hypertarget{main_8c_acc6766002627614b5f287d749a5c24fc}\label{main_8c_acc6766002627614b5f287d749a5c24fc}} 
+\#define {\bfseries U\+S\+A\+R\+T\+\_\+\+C\+H\+A\+R\+L\+E\+N\+G\+TH}~8
+\item 
+\mbox{\Hypertarget{main_8c_a64a9b34f073eb17acc0054409f9a65de}\label{main_8c_a64a9b34f073eb17acc0054409f9a65de}} 
+\#define {\bfseries C\+H\+A\+R\+\_\+\+S\+T\+A\+R\+T\+\_\+\+A\+C\+Q\+U\+I\+S\+I\+T\+I\+ON}~\textquotesingle{}s\textquotesingle{}
+\item 
+\mbox{\Hypertarget{main_8c_af78bd4a7597d80f211277e2f38046fa7}\label{main_8c_af78bd4a7597d80f211277e2f38046fa7}} 
+\#define {\bfseries C\+H\+A\+R\+\_\+\+S\+T\+O\+P\+\_\+\+A\+C\+Q\+U\+I\+S\+I\+T\+I\+ON}~\textquotesingle{}x\textquotesingle{}
+\item 
+\mbox{\Hypertarget{main_8c_a0829c56028f5e64f514a26778d9a58e4}\label{main_8c_a0829c56028f5e64f514a26778d9a58e4}} 
+\#define {\bfseries G\+P\+I\+O88\+\_\+\+P\+O\+RT}~2
+\item 
+\mbox{\Hypertarget{main_8c_a31ffeead10dff939da195b7661d4ed7b}\label{main_8c_a31ffeead10dff939da195b7661d4ed7b}} 
+\#define {\bfseries G\+P\+I\+O88\+\_\+\+B\+I\+T\+\_\+\+C\+O\+N\+T\+R\+OL}~1 $<$$<$ (24 \& 0x1\+F)
+\item 
+\mbox{\Hypertarget{main_8c_aa565aa189a77d0d560f3332bdc6953bb}\label{main_8c_aa565aa189a77d0d560f3332bdc6953bb}} 
+\#define \hyperlink{main_8c_aa565aa189a77d0d560f3332bdc6953bb}{F\+R\+E\+Q\+\_\+1}~1000
+\begin{DoxyCompactList}\small\item\em Fréquences d\textquotesingle{}échantillonnage disponibles pour la capture et l\textquotesingle{}envoi de données. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8c_ac997aaac242ded6a81263dfb26bbfe65}\label{main_8c_ac997aaac242ded6a81263dfb26bbfe65}} 
+\#define {\bfseries F\+R\+E\+Q\+\_\+2}~2000
+\item 
+\mbox{\Hypertarget{main_8c_a4e0c9390eb6ff32dc7cc9da1aa29df90}\label{main_8c_a4e0c9390eb6ff32dc7cc9da1aa29df90}} 
+\#define \hyperlink{main_8c_a4e0c9390eb6ff32dc7cc9da1aa29df90}{A\+D\+C\+\_\+\+T\+C\+\_\+\+C\+H\+A\+N\+N\+EL}~0
+\begin{DoxyCompactList}\small\item\em Canaux utilisés pour les Timer Counter. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8c_a70917a447240dd7b837f46c2ff89ce99}\label{main_8c_a70917a447240dd7b837f46c2ff89ce99}} 
+\#define {\bfseries L\+E\+D\+\_\+\+T\+C\+\_\+\+C\+H\+A\+N\+N\+EL}~1
+\item 
+\mbox{\Hypertarget{main_8c_a085751fedd182a3b3ee46c7cd438da5e}\label{main_8c_a085751fedd182a3b3ee46c7cd438da5e}} 
+\#define \hyperlink{main_8c_a085751fedd182a3b3ee46c7cd438da5e}{L\+E\+D\+\_\+\+F\+R\+EQ}~10
+\begin{DoxyCompactList}\small\item\em Fréquence de clignotement des L\+E\+Ds. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8c_a840291bc02cba5474a4cb46a9b9566fe}\label{main_8c_a840291bc02cba5474a4cb46a9b9566fe}} 
+int {\bfseries main} (void)
+\item 
+\mbox{\Hypertarget{main_8c_a5c3eda656384c3976ce643501a2bf1a4}\label{main_8c_a5c3eda656384c3976ce643501a2bf1a4}} 
+{\bfseries \+\_\+\+\_\+attribute\+\_\+\+\_\+} ((\+\_\+\+\_\+interrupt\+\_\+\+\_\+))
+\item 
+\mbox{\Hypertarget{main_8c_a7679b9dceb16f604e6014a51aaaad275}\label{main_8c_a7679b9dceb16f604e6014a51aaaad275}} 
+void \hyperlink{main_8c_a7679b9dceb16f604e6014a51aaaad275}{toggle\+\_\+leds} ()
+\begin{DoxyCompactList}\small\item\em Faire clignoter les L\+E\+Ds lorsque nécessaire. \end{DoxyCompactList}\item 
+void \hyperlink{main_8c_ace7a691a0e5621dd2cf3cf9a27f03dd6}{get\+\_\+received\+\_\+char} ()
+\begin{DoxyCompactList}\small\item\em Traiter le caractère reçu du U\+S\+A\+RT. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8c_ac1286cc203d18b8228e4eb7e9f773446}\label{main_8c_ac1286cc203d18b8228e4eb7e9f773446}} 
+void \hyperlink{main_8c_ac1286cc203d18b8228e4eb7e9f773446}{send\+\_\+pot\+\_\+val} ()
+\begin{DoxyCompactList}\small\item\em Envoie la valeur du potentiomètre sur le lien U\+S\+A\+RT. \end{DoxyCompactList}\item 
+void \hyperlink{main_8c_a42e2810068794e5bcc6db7675549f94f}{send\+\_\+light\+\_\+val} ()
+\begin{DoxyCompactList}\small\item\em Envoie la valeur du capteur de lumière sur le lien U\+S\+A\+RT. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8c_a28625349a17ebb0b2d998165caca8e11}\label{main_8c_a28625349a17ebb0b2d998165caca8e11}} 
+volatile avr32\+\_\+adc\+\_\+t $\ast$ \hyperlink{main_8c_a28625349a17ebb0b2d998165caca8e11}{adc} = \&A\+V\+R32\+\_\+\+A\+DC
+\begin{DoxyCompactList}\small\item\em Pointeur sur le A\+DC de l\textquotesingle{}A\+V\+R32. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8c_a7c10027ca174fc9d529796f04aca6bd4}\label{main_8c_a7c10027ca174fc9d529796f04aca6bd4}} 
+volatile bool \hyperlink{main_8c_a7c10027ca174fc9d529796f04aca6bd4}{running} = false
+\begin{DoxyCompactList}\small\item\em Fanion activé lorsqu\textquotesingle{}en capture de données. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8c_a8451cf910bce1ba7e66208ecbb917b8e}\label{main_8c_a8451cf910bce1ba7e66208ecbb917b8e}} 
+volatile bool \hyperlink{main_8c_a8451cf910bce1ba7e66208ecbb917b8e}{light\+\_\+available} = false
+\begin{DoxyCompactList}\small\item\em Fanion activé lorsque la valeur de lumière est disponible. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8c_a256aefa019dbe124a6955ad388027ed8}\label{main_8c_a256aefa019dbe124a6955ad388027ed8}} 
+volatile bool \hyperlink{main_8c_a256aefa019dbe124a6955ad388027ed8}{pot\+\_\+available} = false
+\begin{DoxyCompactList}\small\item\em Fanion activé lorsque la valeur de potentiomètre est disponible. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8c_a90c83c8910af54f9485402fd58157a30}\label{main_8c_a90c83c8910af54f9485402fd58157a30}} 
+volatile bool \hyperlink{main_8c_a90c83c8910af54f9485402fd58157a30}{adc\+\_\+overflow} = false
+\begin{DoxyCompactList}\small\item\em Fanion activé lorsqu\textquotesingle{}il y a un débordement du A\+DC (valeur convertie n\textquotesingle{}a pas été envoyée) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8c_aaac87c6fa68bf82d56e16c772776a9bc}\label{main_8c_aaac87c6fa68bf82d56e16c772776a9bc}} 
+volatile bool \hyperlink{main_8c_aaac87c6fa68bf82d56e16c772776a9bc}{toggle\+\_\+led} = false
+\begin{DoxyCompactList}\small\item\em Fanion pour faire clignoter les L\+E\+Ds (lorsque vrai, la L\+ED clignotera dans l\textquotesingle{}interruption) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8c_a7bb85fca8ce881d72fbbd67c0f87d5c5}\label{main_8c_a7bb85fca8ce881d72fbbd67c0f87d5c5}} 
+volatile bool \hyperlink{main_8c_a7bb85fca8ce881d72fbbd67c0f87d5c5}{char\+\_\+received} = false
+\begin{DoxyCompactList}\small\item\em Fanion indiquant si le statut de transmission a changé (lorsque vrai, on doit aller chercher le caractère sur U\+S\+A\+RT) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8c_a65b0952a9cc2c802ae1d86aa8106f1f6}\label{main_8c_a65b0952a9cc2c802ae1d86aa8106f1f6}} 
+volatile bool \hyperlink{main_8c_a65b0952a9cc2c802ae1d86aa8106f1f6}{light\+\_\+tx\+\_\+done} = false
+\begin{DoxyCompactList}\small\item\em Fanion indiquant si la transmission de la valeur de lumière est complétée (on peut maintenant transmettre le potentiomètre) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8c_ace4f91cfc29a1705b72cb94c66f9f90d}\label{main_8c_ace4f91cfc29a1705b72cb94c66f9f90d}} 
+volatile U32 \hyperlink{main_8c_ace4f91cfc29a1705b72cb94c66f9f90d}{rx\+\_\+char}
+\begin{DoxyCompactList}\small\item\em Caractere reçu du U\+S\+A\+RT. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8c_a134668271e65b3a6cf99c5d44462f4dc}\label{main_8c_a134668271e65b3a6cf99c5d44462f4dc}} 
+volatile unsigned int \hyperlink{main_8c_a134668271e65b3a6cf99c5d44462f4dc}{light\+\_\+val} = 0
+\begin{DoxyCompactList}\small\item\em Valeur de la lumière récupérée du A\+DC. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8c_a206d96de52eb67c6f97e3863266f4f2b}\label{main_8c_a206d96de52eb67c6f97e3863266f4f2b}} 
+volatile unsigned int \hyperlink{main_8c_a206d96de52eb67c6f97e3863266f4f2b}{pot\+\_\+val} = 0
+\begin{DoxyCompactList}\small\item\em Valeur du potentiomètre récupérée du A\+DC. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8c_ab17c387eb7798bbb74ccfedd6f4cf21b}\label{main_8c_ab17c387eb7798bbb74ccfedd6f4cf21b}} 
+uint32\+\_\+t \hyperlink{main_8c_ab17c387eb7798bbb74ccfedd6f4cf21b}{sampling\+\_\+rate} = \hyperlink{main_8c_aa565aa189a77d0d560f3332bdc6953bb}{F\+R\+E\+Q\+\_\+1}
+\begin{DoxyCompactList}\small\item\em Valeur d\textquotesingle{}échantillonage courante A\+DC. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Prototype 1 -\/ L\+O\+G550. 
+
+\begin{DoxyAuthor}{Author}
+Guillaume Chevalier, Karl Thibault, Nicolas Arsenault 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+02 février 2017
+\end{DoxyDate}
+\begin{DoxyParagraph}{Système d’acquisition de données en temps réel}
+
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Objectifs}
+• Se familiariser avec l\textquotesingle{}environnement matériel/logiciel pour le développement~\newline
+ − Maîtriser l’interface de Atmel Studio 6.\+2.~\newline
+ − Être capable de compiler et de télécharger un programme fourni en exemple~\newline
+ − Être capable de créer un nouveau projet, de le compiler et de le télécharger~\newline
+• Explorer la vaste documentation disponible~\newline
+• Lire, analyser et comprendre les programmes~\newline
+• Développer la structure du programme d’acquisition sur les microcontrôleurs.
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Les modules A\+SF suivants sont nécessaires pour compiler ce code \+:}
+• A\+DC -\/ Anagloc to Digital Converter~\newline
+• G\+P\+IO -\/ General-\/\+Purpose Input/\+Output (driver)~\newline
+• I\+N\+TC -\/ Interrupt Controller (driver)~\newline
+• PM -\/ Power Manager (driver)~\newline
+• TC -\/ Timer/\+Counter (driver)~\newline
+• U\+S\+A\+RT -\/ Universal Synchronous/\+Asynchronous Receiver/\+Transmitter~\newline
+• Generic board support (driver)~\newline
+• System Clock Control (service)
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Veuillez brancher l\textquotesingle{}E\+V\+K1100 à l\textquotesingle{}ordinateur via le port U\+S\+A\+R\+T0.}
+
+\end{DoxyParagraph}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{main_8c_ace7a691a0e5621dd2cf3cf9a27f03dd6}\label{main_8c_ace7a691a0e5621dd2cf3cf9a27f03dd6}} 
+\index{main.\+c@{main.\+c}!get\+\_\+received\+\_\+char@{get\+\_\+received\+\_\+char}}
+\index{get\+\_\+received\+\_\+char@{get\+\_\+received\+\_\+char}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{get\+\_\+received\+\_\+char()}{get\_received\_char()}}
+{\footnotesize\ttfamily void get\+\_\+received\+\_\+char (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Traiter le caractère reçu du U\+S\+A\+RT. 
+
+\begin{DoxyParagraph}{Traite le caractère reçu sur U\+S\+A\+RT (appelé après une interruption).}
+Traite le départ (s) et la fin (x) de transmission. 
+\end{DoxyParagraph}
+\mbox{\Hypertarget{main_8c_a42e2810068794e5bcc6db7675549f94f}\label{main_8c_a42e2810068794e5bcc6db7675549f94f}} 
+\index{main.\+c@{main.\+c}!send\+\_\+light\+\_\+val@{send\+\_\+light\+\_\+val}}
+\index{send\+\_\+light\+\_\+val@{send\+\_\+light\+\_\+val}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{send\+\_\+light\+\_\+val()}{send\_light\_val()}}
+{\footnotesize\ttfamily void send\+\_\+light\+\_\+val (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Envoie la valeur du capteur de lumière sur le lien U\+S\+A\+RT. 
+
+\begin{DoxyParagraph}{Envoie la valeur de la lumière lorsque l\textquotesingle{}U\+S\+A\+RT est prêt pour la transmission.}
+Sinon, allume le quatrième L\+ED pour indiquer le problème 
+\end{DoxyParagraph}

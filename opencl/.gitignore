@@ -1,0 +1,49 @@
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# Debug files
+Debug/
+*.dSYM/
+*.su
+Lab4/Debug/vc120.pdb
+*.tlog
+Lab4/Debug/vc120.idb
+*.log
+Debug/Lab4.pdb
+*.ilk
+*.suo
+*.v12.suo
+Laboratoire4.VC.VC.opendb
+Lab4/Debug/vc140.idb
+Laboratoire4.VC.db
+*.pdb
+Lab4/Lab4.vcxproj.user
+Release/Lab4.iobj
+*.ipdb
