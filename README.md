@@ -1,6 +1,6 @@
-# MPI
-
-## Probleme
+ 
+# Some work from school
+## mpi
 2 algo run in sequential + parallel
 both algo run on a matrix m*n (8*8) for k iteration
 
@@ -16,9 +16,14 @@ k 3 4 5 6 7
   1 2 3 4 5
      m 
 
-## Files
-par containe the parallel algo 1 & 2
-seq containe the sequential algo 1 & 2
-     
-## Run in server
-`mpirun -n 10 hello 3 4 5`
+## openMP
+Same as mpi
+
+## mpi_unstable
+In this case the dimantion of the matrix are unkown so we need to asigne "block" to minimise comunication between cores
+
+## opencl
+Kinda like mpi algo 1, but using the GPU.
+
+## embeded
+TODO
